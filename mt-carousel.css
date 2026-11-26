@@ -1,0 +1,23 @@
+
+#mt-catalog-carousel{font-family:var(--mt-font-ui);color:var(--mt-text);max-width:var(--mt-grid);margin:0 auto;padding:10px 20px 40px}
+#mt-catalog-carousel .mt-row{padding:26px 0 6px}
+#mt-catalog-carousel h2.mt-head{margin:0 0 18px;font-size:var(--mt-fs-xl);letter-spacing:.08em;text-align:center}
+#mt-catalog-carousel h2.mt-head.mt-sale{color:var(--mt-accent);margin-bottom:4px}
+#mt-catalog-carousel .mt-sub{margin:0 0 18px;text-align:center;color:var(--mt-muted);font-size:var(--mt-fs-sm)}
+#mt-catalog-carousel .mt-vp{position:relative;overflow:hidden}
+#mt-catalog-carousel .mt-track{display:flex;gap:14px;transition:transform .45s ease;align-items:stretch}
+#mt-catalog-carousel .mt-card{background:#fff;border:1px solid #eee;border-radius:6px;overflow:hidden;text-decoration:none;color:inherit;position:relative;display:block}
+#mt-catalog-carousel .mt-card img{display:block;width:100%;height:230px;object-fit:cover;background:#f2f2f2}
+#mt-catalog-carousel .mt-body{padding:10px 12px 14px;min-height:88px}
+#mt-catalog-carousel .mt-t{font-size:var(--mt-fs-sm);line-height:1.4;min-height:36px}
+#mt-catalog-carousel .mt-p{font-size:var(--mt-fs-md);font-weight:700;color:var(--mt-accent);margin-top:8px}
+#mt-catalog-carousel .mt-mark{position:absolute;top:8px;left:8px;background:var(--mt-accent);color:#fff;font-size:10px;padding:3px 7px;border-radius:var(--mt-radius-sm)}
+#mt-catalog-carousel .mt-arr{position:absolute;top:38%;width:40px;height:40px;border-radius:50%;border:1px solid var(--mt-line);background:rgba(255,255,255,.92);color:#282828;font-size:22px;line-height:1;cursor:pointer;z-index:2;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+#mt-catalog-carousel .mt-arr.l{left:-8px}#mt-catalog-carousel .mt-arr.r{right:-8px}
+#mt-catalog-carousel .mt-arr[disabled]{opacity:.25;cursor:default}
+#mt-catalog-carousel .mt-meta{display:flex;justify-content:flex-end;margin-top:8px;color:#999;font-size:12px}
+.mt-hidden-by-carousel{display:none!important}
+#mt-catalog-carousel .mt-banners{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:8px 0 14px}#mt-catalog-carousel .mt-banner{position:relative;display:block;height:260px;border-radius:8px;overflow:hidden;text-decoration:none;background:#222}#mt-catalog-carousel .mt-banner img{width:100%;height:100%;object-fit:cover;object-position:center 22%;display:block;filter:brightness(.72);transition:transform .4s}#mt-catalog-carousel .mt-banner:hover img{transform:scale(1.05)}#mt-catalog-carousel .mt-banner span{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;color:#fff;font-size:clamp(18px,2.4vw,30px);font-weight:800;letter-spacing:.12em;text-shadow:0 2px 12px rgba(0,0,0,.6)}@media(max-width:640px){#mt-catalog-carousel .mt-banners{grid-template-columns:1fr}#mt-catalog-carousel .mt-banner{height:180px}}
+#mt-catalog-carousel .mt-mark.mt-season{background:var(--mt-accent);color:#fff;font-size:10px;padding:3px 7px;border-radius:var(--mt-radius-sm)}
+#mt-catalog-carousel .mt-mark.mt-top{background:#191919;color:#fff}#mt-catalog-carousel .mt-mark.mt-last{background:#757575;color:#fff}
+@media(max-width:640px){#mt-catalog-carousel{padding:6px 12px 30px}#mt-catalog-carousel .mt-card img{height:170px}}
