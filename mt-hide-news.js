@@ -1,0 +1,1 @@
+(function(){if(!document.getElementById('mt-hide-news')){var c=document.createElement('style');c.id='mt-hide-news';c.textContent='#rec1522082651{display:none!important}';document.head.appendChild(c)}})();
