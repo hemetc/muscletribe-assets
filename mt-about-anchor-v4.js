@@ -1,0 +1,4 @@
+(function(){
+if(document.getElementById('rec1520244201_about'))return;
+function add(){if(document.getElementById('rec1520244201_about'))return;var r=document.getElementById('rec1520244201');if(!r)return;var a=document.createElement('a');a.id='rec1520244201_about';a.style.cssText='display:block;height:1px;position:absolute;top:0';r.appendChild(a)}add();function scrollToAbout(){if(location.hash.indexOf('rec1520244201_about')>=0){var r=document.getElementById('rec1520244201');if(r)r.scrollIntoView({behavior:'smooth',block:'start'})}}setTimeout(scrollToAbout,700);setTimeout(scrollToAbout,1800);document.addEventListener('click',function(e){var a=e.target.closest('a');if(a&&/^О нас$/i.test((a.textContent||'').trim()))setTimeout(scrollToAbout,250)});var iv=setInterval(add,500);setTimeout(function(){clearInterval(iv)},15000);
+})();
