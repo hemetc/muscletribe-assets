@@ -1,0 +1,112 @@
+<!doctype html><html lang="ru"><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Тап-ап Muscle Tribe — деплой/встреча — 29.11.2026</title>
+<style>
+body{font:14px/1.45 Manrope,Arial,sans-serif;background:#f7f6f3;color:#191919;margin:0;padding:16px}
+h1{font-size:22px;margin:0 0 4px}.sub{color:#757575;margin-bottom:12px}
+.tabs button{font:inherit;padding:7px 13px;margin:0 4px 10px 0;border:1px solid #ddd;background:#fff;border-radius:20px;cursor:pointer}
+.tabs button.on{background:#e2602f;color:#fff;border-color:#e2602f}
+.q{background:#fff;border:1px solid #e6e4df;border-radius:8px;padding:10px 12px;margin:8px 0;display:grid;grid-template-columns:80px 1fr;gap:10px}
+.code{font-weight:800;color:#e2602f;font-size:12px}.qt{font-weight:700}.hint{color:#757575;font-size:12px;margin:3px 0 7px}
+.chips{display:flex;flex-wrap:wrap;gap:5px}.chip{border:1px solid #ccc;border-radius:16px;padding:4px 10px;font-size:12px;cursor:pointer;background:#fafafa;user-select:none}
+.chip.on{background:#e2602f;color:#fff;border-color:#e2602f}.lbl{font-size:11px;color:#999;margin:7px 0 2px}
+input,textarea{width:100%;box-sizing:border-box;border:1px solid #ddd;border-radius:5px;padding:6px 8px;font:inherit;font-size:13px}textarea{min-height:34px}
+img.vis{width:52px;height:52px;object-fit:cover;border-radius:6px;vertical-align:middle;margin-right:8px}
+.panel{background:#fff;border:1px solid #e6e4df;border-radius:8px;padding:12px;margin:10px 0}
+.panel a{color:#2f6fb0;display:block;font-size:13px;padding:2px 0}
+#prog{position:sticky;top:0;background:#f7f6f3;padding:6px 0;z-index:2;font-weight:700}
+button.act{font:inherit;background:#191919;color:#fff;border:0;border-radius:6px;padding:9px 14px;cursor:pointer;margin-right:6px}
+sec{display:none}sec.on{display:block}
+</style>
+<h1>Тап-ап Muscle Tribe</h1><div class="sub">Деплойная версия · 29.11.2026 · цены, условия, ограничения, история бренда · всё протыкивается кнопками, экспорт в JSON</div>
+<div class="panel"><b>Женя, зачем это и что от тебя 👇</b>
+<div>• Мы уже собрали «каркас»: сайт, карточки, цвета, бот, аналитику и эту страницу с вопросами. Это не «программирование ради программирования» — это способ <b>быстро продавать больше и не терять твои труды</b>.</div>
+<div>• Тебе не нужно разбираться в коде. Достаточно <b>цифр по ткани, печати, срокам и ценам</b> — они на вкладках «Цены», «Условия», «Опт».</div>
+<div>• Просьба: <b>двигайся за Романом</b> — отвечай по порядку, что знаешь, что нет — пиши «уточню». Дальше он сам разложит это по карточкам и каналам.</div>
+<div>• Всё, что здесь нажато, уходит в JSON и ничего не публикуется без команды. Твоя версия сайта остаётся как есть — мы идём вперёд вместе.</div>
+</div>
+<div class="panel"><b>Тезисные вводные (от владельца):</b>
+<div>• Амбассадорам даём <b>15%</b> по именному коду (было 10% в черновике — пересмотреть).</div>
+<div>• По их <b>именной реферралке — 10%</b> реферальщику; с реферальных заказов амбассадору начисляется баланс, который <b>минусуется со следующего заказа</b> на сайте.</div>
+<div>• Шоппер-пилот: <b>100 шт. в цвете заказчика, 500 ₽/шт</b>, пантон утверждается на карточке.</div>
+<div>• Не выдумываем состав/плотность: 180 г/м² — только Full Power.</div>
+<div>• Публикация/деплой — только по явной команде «публикуй».</div>
+<div style="margin-top:8px;color:#8a3a12"><b>Чипы — только подсказки.</b> Ограничения по размерам/цветам/тиражам неоднозначны: смело пиши «Свой ответ» и комментарий, выбирай несколько чипов — главное — озвучить нюанс, а не попасть в вариант.</div>
+</div>
+<div id="prog"></div>
+<div class="tabs" id="tabs"></div>
+<div class="panel"><b>Страницы, куда нужно войти/нажать:</b>
+<a href="https://docs.google.com/spreadsheets/d/1RfG62e5aroPVf34I_XsRPsAN79idOZc5RzZd_K5CAd4/edit" target="_blank">Google Таблица заявок → Расширения → Apps Script (деплой бота v11)</a>
+<a href="https://store.tilda.ru/store/?projectid=17183466" target="_blank">Tilda Store — карточки, editions, off=y, drag-drop аксессуаров</a>
+<a href="https://tilda.ru/projects/editheadcode/?projectid=17183466" target="_blank">Tilda HEAD — загрузчики/скрипты, точка отката</a>
+<a href="https://github.com/hemetc/muscletribe-assets" target="_blank">GitHub ассеты (jsDelivr) — внешние JS</a>
+<a href="https://opencode.ai/console/go" target="_blank">OpenCode Go / биллинг (фолбэк OpenRouter)</a>
+</div>
+<button class="act" onclick="copyJSON()">Скопировать JSON</button><button class="act" onclick="downloadJSON()">Скачать JSON</button>
+<textarea id="out" readonly placeholder="JSON появится здесь"></textarea>
+<div id="sections"></div>
+<script>
+var QS=[
+// --- ЦЕНЫ И СЕБЕСТОИМОСТЬ ---
+{id:'E1',sec:'Цены',t:'Себестоимость базовой футболки (2 000–3 000 ₽)',h:' TK / заготовка / пошив / нанесение — цифра',opts:['до 1 500','1 500–2 000','2 000–2 500','уточню'],free:1},
+{id:'E2',sec:'Цены',t:'Себестоимость новой модели 3 500 ₽',h:'с DTF, биркой, упаковкой',opts:['до 2 000','2 000–2 500','2 500–3 000','уточню'],free:1},
+{id:'E3',sec:'Цены',t:'Full Power 180 г/м², себестоимость',h:'цена 1 500–2 000 ₽, нужна маржа',opts:['до 1 000','1 000–1 500','1 500+','уточню'],free:1,img:'https://static.tildacdn.com/stor3338-3731-4462-b662-343536636164/36b0b023e817346b79ca4b9deab538d8.jpg'},
+{id:'E4',sec:'Цены',t:'Худи 340 / свитшот 330 / штаны — себестоимость',h:'по UID 116215902803, 690796779062, 657867329573',opts:['уточню'],free:1},
+{id:'E5',sec:'Цены',t:'DTF-печать: стоимость за кадр',h:'от 1 шт., площадь, подготовка макета',opts:['до 300','300–500','500+','уточню'],free:1},
+{id:'E6',sec:'Цены',t:'Шелкография от 50 шт — стоимость',h:'нужна для тиража шопперов 100',opts:['дешевле DTF','примерно одинаково','дороже DTF','уточню'],free:1},
+{id:'E7',sec:'Цены',t:'Персонализация +1 000 ₽ — реальная наценка?',h:'вводная владельца, проверить маржу',opts:['верно','надо больше','надо меньше','уточню'],free:1},
+{id:'E8',sec:'Цены',t:'QR-код на загривке +500 ₽',h:'вводная владельца',opts:['верно','надо больше','надо меньше','уточню'],free:1},
+{id:'E9',sec:'Цены',t:'XXXL +250 / XXXXL +500 — покрывают ткань?',h:'не +13%, фикс',opts:['покрывают',' XXXL надо больше','XXXXL надо больше','уточню'],free:1},
+{id:'E10',sec:'Цены',t:'Шоппер: себестоимость и тираж 100',h:'пилот по 500 ₽/шт, текущая цена 550 ₽',opts:['500 ₽ реально','надо 600+','дешевле 500','уточню'],free:1,img:'https://static.tildacdn.com/stor6663-6536-4037-b961-646234316561/beefa0327db032f29b40851565e689d1.jpg'},
+{id:'E11',sec:'Цены',t:'Ограничения: размеры, цвета, тиражи, сроки — нюансы',h:'что важно учесть, где мы слишком прямо сформулировали',opts:['по размерам','по цветам','по тиражу','по срокам','по упаковке','уточню'],free:1},
+{id:'E12',sec:'Цены',t:'Диапазон тиражей: с какого и по какой штук имеет смысл шить',h:'1 / 10 / 50 / 100 / 500 / 1000 — где ценовые разрывы и минимальный экономичный тираж',opts:['от 1','от 10','от 50','до 1000','до 500','уточню'],free:1},
+// --- УСЛОВИЯ И ОГРАНИЧЕНИЯ ---
+{id:'A1',sec:'Условия',t:'Состав и плотность по категориям',h:'180 — только Full Power; 250/340/330 — проверить',opts:['всё верно','есть отличия','уточню'],free:1},
+{id:'A4',sec:'Условия',t:'Срок от аппрува макета до отгрузки',h:'сейчас в текстах «от недели»',opts:['7 дней','10 дней','14 дней','срочно 3','уточню'],free:1},
+{id:'A5',sec:'Условия',t:'Способы оплаты',h:'CloudPayments/ЮKassa, МИР/СБП/рассрочка',opts:['онлайн','при получении','предоплата 50%','все три','уточню'],free:1},
+{id:'A6',sec:'Условия',t:'Возврат и обмен',h:'срок, состояние, кто платит доставку',opts:['14 дней','30 дней','только невношенное','покупатель платит','мы платим','уточню'],free:1},
+{id:'A7',sec:'Условия',t:'Минимальный тираж B2B/кастом',h:'можно ли 1 шт',opts:['1 шт можно','от 10','от 20','уточню'],free:1},
+{id:'A8',sec:'Условия',t:'Стоимость образца и макета',h:'данных нет',opts:['образец бесплатно','макет бесплатно','уточню'],free:1},
+{id:'A9',sec:'Условия',t:'Кто аппрувит макет перед печатью',h:'черновик: Роман → Женя → «публикуй»',opts:['Роман','Женя','Роман → Женя','уточню'],free:1},
+{id:'A10',sec:'Условия',t:'Контакт и SLA ответа',h:'TG @muscletribe_bot, VK, +7 (909) 999-36-35',opts:['TG бот','VK','телефон','все верны','SLA 2 ч','SLA 1 день','уточню'],free:1},
+{id:'B4',sec:'Условия',t:'Прогрессивные скидки 5/10/15/20%',h:'при какой марже допустимы',opts:['как новая шкала','5% за 2','10% за 3','нет на декабрь','уточню'],free:1},
+{id:'B11',sec:'Условия',t:'Унисекс: две размерные линейки М/Ж',h:'футболка 791359473273, штаны 192834629392',opts:['только футболка и штаны','ещё худи/свитшоты','нет двух линеек','уточню'],free:1},
+// --- ОПТ И ПРОДАЖА ---
+{id:'W1',sec:'Опт',t:'Себестоимость по тиражам 1/10/50/100/500/1000',h:'ценовые разрывы, минимальный экономичный тираж, сроки по каждому',opts:['уточню'],free:1},
+{id:'W2',sec:'Опт',t:'Сроки тиража 100 шопперов с лого',h:'от аппрува макета',opts:['3 дня','7 дней','10 дней','уточню'],free:1},
+{id:'W3',sec:'Опт',t:'Брак/возврат: кто платит доставку',h:'доля брака',opts:['мы платим','покупатель','уточню'],free:1},
+{id:'W4',sec:'Опт',t:'Амбассадоры: 15% личный / 10% реферралка — из маржи или наценки',h:'Ринатыч/Юля/АЭРОКС/Ромка; уточнить, 10% — покупателю или на счёт амбассадору',opts:['из маржи','из наценки','10% покупателю','10% на счёт','уточню'],free:1},
+{id:'W6',sec:'Нейминг',t:'Схема именных кодов: MT-ИМЯ-15 / MT-ИМЯ-REF10',h:'коротко, диктуется устно, без длинных hyphen-цепочек',opts:['утвердить','другой шаблон','уточню'],free:1},
+{id:'W7',sec:'Нейминг',t:'Ромка: MT-ROMKA-15 и MT-DDХ-10 вместо MT-ROMKA-10 / MT-DDX-Offer',h:'-DDХ читается как DDX, цифра 10 = реферальная скидка',opts:['переименовать','оставить как есть','уточню'],free:1},
+{id:'W8',sec:'Нейминг',t:'Клубные коды вида MT-<КЛУБ>-15 для B2B',h:'по клубам/залам: короткое имя клуба + 15%',opts:['да, схема работает','только именные','уточню'],free:1},
+{id:'W5',sec:'Опт',t:'Доставка: тарифы и порог бесплатной',h:'СДЭК/ПВЗ',opts:['до 5 000','до 10 000','нет порога','уточню'],free:1},
+{id:'R1',sec:'Условия',t:'Роялти художникам: текущий процент',h:'по авторским принтам',opts:['5%','10%','15%','уточню'],free:1},
+{id:'R2',sec:'Условия',t:'Промо-часть из выручки по принту',h:'на дропы к соревнованиям, подарки, розыгрыши; из чьей доли', opts:['1%','3%','5%','из доли бренда','уточню'],free:1},
+{id:'W13',sec:'Опт',t:'Блэйз-аналитикс: сложить всё в шоппер — хорошая цена',h:'предложение Жене: комплект в шоппере по выгодной для клиента цене; нужна себестоимость',opts:['сделаем','надо посчитать','уточню'],free:1},
+{id:'A12',sec:'Условия',t:'История бренда: чекпойнты до лета–осени 2026',h:'как решил / открыл / зарегистрировал / где участвовал / для кого шил-печатал / какие бренды пробовал — с датами и фото; после — расскажем вместе',opts:['расскажу','есть архив','уточню'],free:1},
+// --- ФОТО И ВИЗУАЛ ---
+{id:'P1',sec:'Фото',t:'Шапки: какие цвета реально есть в фотосете',h:' RW2A8999–9014 белые; нужны остальные',opts:['белый','чёрный','синий','рыжий','горчичный','серый','уточню'],free:1,img:'https://static.tildacdn.com/stor3462-3934-4866-b265-633664623261/0e5690e784cd5ddd2599d871b526804e.jpg'},
+{id:'P2',sec:'Фото',t:'Носки: 2 новых фото от Ринатыча и Юли',h:'встреча завтра, принести',opts:['принесу','позже','уточню'],free:1},
+{id:'P3',sec:'Фото',t:'Пантон шоппера: 3–5 рыночных цветов',h:'утвердить на карточке пилота',opts:['белый','чёрный','зелёный','лайм','розовый','уточню'],free:1}
+];
+var secs=['Цены','Условия','Опт','Нейминг','Фото'];
+var state=JSON.parse(localStorage.getItem('zhenyaMeeting')||'{}');
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')}
+function get(id){return state[id]||(state[id]={on:[],ans:'',cmt:''})}
+function toggle(id,o){var g=get(id);var i=g.on.indexOf(o);if(i>=0)g.on.splice(i,1);else g.on.push(o);render();save()}
+function ans(id,v){get(id).ans=v;save()}function cmt(id,v){get(id).cmt=v;save()}
+function save(){localStorage.setItem('zhenyaMeeting',JSON.stringify(state))}
+function render(){
+ document.getElementById('tabs').innerHTML=secs.map((s,i)=>'<button class="'+(i===0?'on':'')+'" onclick="tab(this,\''+s+'\')">'+s+'</button>').join('');
+ document.getElementById('sections').innerHTML=secs.map(function(s,i){return '<sec class="'+(i===0?'on':'')+'" id="sec-'+s+'">'+QS.filter(q=>q.sec===s).map(function(q){
+  var g=get(q);var vis=q.img?'<img class="vis" src="'+q.img+'">':'';
+  var chips=q.opts.map(o=>'<span class="chip '+(g.on.indexOf(o)>=0?'on':'')+'" onclick="toggle(\''+q.id+'\',\''+o.replace(/'/g,"\\'")+'\')">'+esc(o)+'</span>').join('');
+  return '<div class="q"><div class="code">'+q.id+'</div><div>'+vis+'<div class="qt">'+esc(q.t)+'</div><div class="hint">'+esc(q.h)+'</div><div class="chips">'+chips+'</div><div class="lbl">Свой ответ</div><input value="'+esc(g.ans)+'" oninput="ans(\''+q.id+'\',this.value)"><div class="lbl">Комментарий</div><textarea oninput="cmt(\''+q.id+'\',this.value)">'+esc(g.cmt)+'</textarea></div></div>';
+ }).join('')+'</sec>'}).join('');
+ var done=QS.filter(q=>{var g=state[q.id];return g&&(g.on.length||g.ans||g.cmt)}).length;
+ document.getElementById('prog').textContent=done+' / '+QS.length+' заполнено';
+}
+function tab(b,s){document.querySelectorAll('.tabs button').forEach(x=>x.classList.remove('on'));b.classList.add('on');document.querySelectorAll('sec').forEach(x=>x.classList.remove('on'));document.getElementById('sec-'+s).classList.add('on')}
+function json(){var o={created:new Date().toISOString(),answers:{}};QS.forEach(q=>{var g=state[q.id];if(g&&(g.on.length||g.ans||g.cmt))o.answers[q.id]={chips:g.on,answer:g.ans,comment:g.cmt}});return JSON.stringify(o,null,2)}
+function copyJSON(){var t=json();document.getElementById('out').value=t;if(navigator.clipboard)navigator.clipboard.writeText(t)}
+function downloadJSON(){var b=new Blob([json()],{type:'application/json'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='zhenya-meeting-2026-11-28.json';a.click()}
+render();
+</script></html>
