@@ -9,20 +9,20 @@
  * получается двойное сжатие: контент уезжает в узкую колонку слева.
  *
  * Лечение: размеры в % от артборда, без vw и без отрицательного margin.
- * Старые загрузчики можно оставить — этот стиль идёт после них и
- * перебивает равные !important-правила.
+ * Селекторы с ДВУМЯ id — перебивают стиль mt-banner-carousel-v3.js,
+ * который вставляется в DOM позже (равная специфичность проиграла бы).
  */
 (function () {
   if (document.getElementById('mt-banner-vw-fix')) return;
   var c = document.createElement('style');
   c.id = 'mt-banner-vw-fix';
   c.textContent =
-    '#mt-banner-carousel{' +
+    '#rec1519889921 #mt-banner-carousel{' +
       'position:absolute!important;left:0!important;right:0!important;' +
       'width:100%!important;max-width:none!important;margin-left:0!important;' +
       'transform:none!important;' +
     '}' +
-    '#rec1519889921 .tn-elem__15198899211762329522850{' +
+    '#rec1519889921 .t396__artboard .tn-elem__15198899211762329522850{' +
       'left:0!important;right:0!important;width:100%!important;' +
       'max-width:none!important;transform:none!important;' +
     '}';
